@@ -1,7 +1,4 @@
-import { Component, OnInit } from '@angular/core';
-import { Subject } from 'rxjs';
-
-import { NewsService } from './../../services/news.service';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { Sources } from './../../models/news-sources';
 
 @Component({
@@ -9,18 +6,13 @@ import { Sources } from './../../models/news-sources';
   templateUrl: './header.component.html',
   styleUrls: ['./header.component.scss']
 })
-export class HeaderComponent implements OnInit {
-  private readonly newsSources$ = new Subject<Sources[]>();
+export class HeaderComponent {
+  @Input() newsSources: Sources[];
+  // tslint:disable-next-line:no-output-on-prefix
+  @Output() onClicked = new EventEmitter<string>();
 
-  constructor(private news: NewsService) { }
-
-  ngOnInit() {
-    this.getSources();
-  }
-
-  getSources() {
-    this.news.getNewsSource()
-      .subscribe(newsSources => this.newsSources$.next(newsSources.sources));
+  chooseSourceName(sourceName: string) {
+    this.onClicked.emit(sourceName);
   }
 
 }
