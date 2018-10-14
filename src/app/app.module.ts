@@ -12,11 +12,13 @@ import {
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
+import { ContainerComponent } from './components/container/container.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent
+    HeaderComponent,
+    ContainerComponent
   ],
   imports: [
     BrowserModule,
