@@ -4,8 +4,10 @@
       <mat-icon>menu</mat-icon>
     </button>
     <mat-menu #appNewsMenu="matMenu">
-      <button mat-menu-item>Option 1</button>
-      <button mat-menu-item>Option 2</button>
+      <button 
+        *ngFor="let source of (newsSources$ | async)"
+        mat-menu-item
+        [matTooltip]="source.description">{{ source.name }}</button>
     </mat-menu>
     <h1 class="title">News Headlines</h1>
   </div>
