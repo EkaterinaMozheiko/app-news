@@ -1,1 +1,2 @@
 <app-header [newsSources]="newsSources$ | async" (onClicked)="onClicked($event)"></app-header>
+<app-news-block [newsBySource]="newsBySource$ | async"></app-news-block>
