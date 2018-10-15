@@ -7,18 +7,21 @@ import {
   MatButtonModule,
   MatMenuModule,
   MatIconModule,
-  MatTooltipModule
+  MatTooltipModule,
+  MatCardModule
 } from '@angular/material';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { ContainerComponent } from './components/container/container.component';
+import { NewsBlockComponent } from './components/news-block/news-block.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    ContainerComponent
+    ContainerComponent,
+    NewsBlockComponent
   ],
   imports: [
     BrowserModule,
@@ -28,7 +31,8 @@ import { ContainerComponent } from './components/container/container.component';
     MatButtonModule,
     MatMenuModule,
     MatIconModule,
-    MatTooltipModule
+    MatTooltipModule,
+    MatCardModule
   ],
   providers: [],
   bootstrap: [AppComponent]
