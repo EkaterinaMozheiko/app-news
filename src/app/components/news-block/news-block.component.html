@@ -3,11 +3,12 @@
     <mat-card-title>{{item.title}}</mat-card-title>
     <mat-card-subtitle>{{item.source.name}}</mat-card-subtitle>
   </mat-card-header>
-  <img *ngIf="item.urlToImage" mat-card-image [src]="item.urlToImage">
+  <img *ngIf="item.urlToImage" mat-card-image [src]="item.urlToImage" alt="news-photo">
   <div fxLayout="row" fxLayoutAlign="center center">
-    <img *ngIf="!item.urlToImage" src="https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg">
+    <img *ngIf="!item.urlToImage" src="https://upload.wikimedia.org/wikipedia/commons/a/ac/No_image_available.svg" alt="no-photo-available">
   </div>
   <mat-card-content fxLayout="row" fxLayoutAlign="center center">
     <p>{{item.description}}</p>
   </mat-card-content>
+  <app-information-block [news]="item"></app-information-block>
 </mat-card>
