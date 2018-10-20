@@ -8,7 +8,7 @@
         *ngFor="let source of newsSources"
         mat-menu-item
         [matTooltip]="source.description"
-        (click)="chooseSourceName(source.name)">{{ source.name }}</button>
+        (click)="chooseSourceName(source.name, source.language)">{{ source.name }}</button>
     </mat-menu>
     <h1 class="title">News Headlines</h1>
   </div>
