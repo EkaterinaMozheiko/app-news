@@ -30,7 +30,7 @@ export class ContainerComponent implements OnInit {
   }
 
   onClicked($event) {
-    this.news.getNewsBySourceName($event)
+    this.news.getNewsBySourceName($event.source, $event.language)
       .subscribe(news => this.newsBySource$.next(news));
   }
 }

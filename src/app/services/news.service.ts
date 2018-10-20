@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
+import { HttpClient, HttpParams } from '@angular/common/http';
 import { Observable } from 'rxjs';
 
 import { NewsSources } from './../models/news-sources';
@@ -15,16 +15,27 @@ export class NewsService {
   constructor(private http: HttpClient) { }
 
   getNewsSource(): Observable<NewsSources> {
-    return this.http.get<NewsSources>(`https://newsapi.org/v2/sources?apiKey=${API_KEY}`);
+    const params = new HttpParams()
+      .set('apiKey', API_KEY);
+    return this.http.get<NewsSources>('https://newsapi.org/v2/sources', {params: params});
   }
 
   getAllNews() {
-    return this.http.get<NewsResponse[]>(`https://newsapi.org/v2/everything?q=apple&pageSize=20&language=en&apiKey=${API_KEY}`);
+    const params = new HttpParams()
+      .set('apiKey', API_KEY)
+      .set('language', 'en')
+      .set('pageSize', '20')
+      .set('sources', 'ABC News');
+    return this.http.get<NewsResponse[]>('https://newsapi.org/v2/everything', {params: params});
   }
 
-  getNewsBySourceName(sourceName: string): Observable<NewsResponse[]> {
-    return this.http.get<NewsResponse[]>(`https://newsapi.org/v2/everything?
-      pageSize=20&language=en&sources=${sourceName}&apiKey=${API_KEY}`);
+  getNewsBySourceName(sourceName: string, language: string): Observable<NewsResponse[]> {
+    const params = new HttpParams()
+      .set('apiKey', API_KEY)
+      .set('language', language)
+      .set('pageSize', '20')
+      .set('sources', sourceName);
+    return this.http.get<NewsResponse[]>('https://newsapi.org/v2/everything', {params: params});
   }
 
 }

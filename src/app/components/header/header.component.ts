@@ -9,10 +9,10 @@ import { Sources } from './../../models/news-sources';
 export class HeaderComponent {
   @Input() newsSources: Sources[];
   // tslint:disable-next-line:no-output-on-prefix
-  @Output() onClicked = new EventEmitter<string>();
+  @Output() onClicked = new EventEmitter<{sourceName: string, language: string}>();
 
-  chooseSourceName(sourceName: string) {
-    this.onClicked.emit(sourceName);
+  chooseSourceName(sourceName: string, language: string) {
+    this.onClicked.emit({sourceName, language});
   }
 
 }
