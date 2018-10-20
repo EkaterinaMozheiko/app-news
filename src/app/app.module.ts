@@ -15,13 +15,15 @@ import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { ContainerComponent } from './components/container/container.component';
 import { NewsBlockComponent } from './components/news-block/news-block.component';
+import { InformationBlockComponent } from './components/information-block/information-block.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     ContainerComponent,
-    NewsBlockComponent
+    NewsBlockComponent,
+    InformationBlockComponent
   ],
   imports: [
     BrowserModule,
