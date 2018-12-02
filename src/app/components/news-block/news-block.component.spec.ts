@@ -1,6 +1,8 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatCardModule, MatIconModule } from '@angular/material';
 
 import { NewsBlockComponent } from './news-block.component';
+import { InformationBlockComponent } from '../';
 
 describe('NewsBlockComponent', () => {
   let component: NewsBlockComponent;
@@ -8,7 +10,8 @@ describe('NewsBlockComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ NewsBlockComponent ]
+      imports: [ MatCardModule, MatIconModule ],
+      declarations: [ NewsBlockComponent, InformationBlockComponent ]
     })
     .compileComponents();
   }));
@@ -19,7 +22,7 @@ describe('NewsBlockComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create component instance', () => {
     expect(component).toBeTruthy();
   });
 });
