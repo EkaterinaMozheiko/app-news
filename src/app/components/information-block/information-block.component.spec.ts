@@ -1,6 +1,7 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
+import { MatIconModule } from '@angular/material';
 
-import { InformationBlockComponent } from './information-block.component';
+import { InformationBlockComponent } from '../';
 
 describe('InformationBlockComponent', () => {
   let component: InformationBlockComponent;
@@ -8,6 +9,7 @@ describe('InformationBlockComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [ MatIconModule ],
       declarations: [ InformationBlockComponent ]
     })
     .compileComponents();
@@ -19,7 +21,7 @@ describe('InformationBlockComponent', () => {
     fixture.detectChanges();
   });
 
-  it('should create', () => {
+  it('should create component instance', () => {
     expect(component).toBeTruthy();
   });
 });
