@@ -20,7 +20,7 @@ export class NewsService {
     return this.http.get<NewsSources>('https://newsapi.org/v2/sources', {params: params});
   }
 
-  getAllNews() {
+  getAllNews(): Observable<NewsResponse[]> {
     const params = new HttpParams()
       .set('apiKey', API_KEY)
       .set('language', 'en')
