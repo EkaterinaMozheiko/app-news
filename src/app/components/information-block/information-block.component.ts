@@ -8,7 +8,7 @@ import { News } from '../../models/news';
 })
 export class InformationBlockComponent implements OnInit {
   @Input() news: News;
-
+  isNewsExpanded = false;
   constructor() { }
 
   ngOnInit() {

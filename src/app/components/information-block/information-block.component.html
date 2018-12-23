@@ -1,4 +1,4 @@
-<div fxLayout="row" fxLayoutAlign="space-evenly center">
+<div fxLayout="row" fxLayoutAlign="space-evenly center" class="information-block">
   <button mat-icon-button>
     <mat-icon class="icon">thumb_up</mat-icon> Likes
   </button>
@@ -8,7 +8,10 @@
   <button mat-icon-button>
     <mat-icon class="icon">share</mat-icon> Share
   </button>
-  <button mat-icon-button>
+  <button mat-icon-button (click)="isNewsExpanded = !isNewsExpanded">
     <mat-icon class="icon">visibility</mat-icon> More
   </button>
 </div>
+<div *ngIf="isNewsExpanded">
+  {{news.content}}
+<div>
