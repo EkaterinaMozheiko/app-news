@@ -1,21 +1,25 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClientModule, HttpClientJsonpModule } from '@angular/common/http';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import {
   MatButtonModule,
   MatMenuModule,
   MatIconModule,
   MatTooltipModule,
-  MatCardModule
+  MatCardModule,
+  MatDialog,
+  MatDialogModule
 } from '@angular/material';
+import { ShareButtonsModule } from '@ngx-share/buttons';
 
 import { AppComponent } from './app.component';
 import { HeaderComponent } from './components/header/header.component';
 import { ContainerComponent } from './components/container/container.component';
 import { NewsBlockComponent } from './components/news-block/news-block.component';
 import { InformationBlockComponent } from './components/information-block/information-block.component';
+import { ShareDialogComponent } from './components/share-dialog/share-dialog.component';
 
 @NgModule({
   declarations: [
@@ -23,7 +27,8 @@ import { InformationBlockComponent } from './components/information-block/inform
     HeaderComponent,
     ContainerComponent,
     NewsBlockComponent,
-    InformationBlockComponent
+    InformationBlockComponent,
+    ShareDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -34,9 +39,14 @@ import { InformationBlockComponent } from './components/information-block/inform
     MatMenuModule,
     MatIconModule,
     MatTooltipModule,
-    MatCardModule
+    MatCardModule,
+    MatDialogModule,
+    HttpClientModule,
+    HttpClientJsonpModule,
+    ShareButtonsModule
   ],
-  providers: [],
+  providers: [MatDialog],
+  entryComponents: [ShareDialogComponent],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
