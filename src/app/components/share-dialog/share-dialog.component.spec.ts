@@ -1,6 +1,9 @@
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { ShareButtonsModule } from '@ngx-share/buttons';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ShareDialogComponent } from './share-dialog.component';
+import { MatDialogModule, MatDialog, MAT_DIALOG_DATA } from '@angular/material';
 
 describe('ShareDialogComponent', () => {
   let component: ShareDialogComponent;
@@ -8,7 +11,9 @@ describe('ShareDialogComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ ShareDialogComponent ]
+      imports: [ ShareButtonsModule, MatDialogModule, HttpClientModule ],
+      declarations: [ ShareDialogComponent ],
+      providers: [ MatDialog, HttpClient, { provide: MAT_DIALOG_DATA, useValue: {} }, ]
     })
     .compileComponents();
   }));

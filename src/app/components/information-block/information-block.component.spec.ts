@@ -1,5 +1,5 @@
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-import { MatIconModule } from '@angular/material';
+import { MatIconModule, MatDialog, MatDialogModule } from '@angular/material';
 
 import { InformationBlockComponent } from '../';
 
@@ -9,8 +9,9 @@ describe('InformationBlockComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [ MatIconModule ],
-      declarations: [ InformationBlockComponent ]
+      imports: [ MatIconModule, MatDialogModule ],
+      declarations: [ InformationBlockComponent ],
+      providers: [ MatDialog ]
     })
     .compileComponents();
   }));
