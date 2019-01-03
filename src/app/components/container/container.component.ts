@@ -12,7 +12,7 @@ import { NewsResponse } from '../../models/news';
 })
 export class ContainerComponent implements OnInit {
   newsSources$: Observable<NewsSources>;
-  newsBySource$: Observable<NewsResponse[]>;
+  newsBySource$: Observable<NewsResponse>;
 
   constructor(private news: NewsService) { }
 

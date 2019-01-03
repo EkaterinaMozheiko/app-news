@@ -20,22 +20,22 @@ export class NewsService {
     return this.http.get<NewsSources>('https://newsapi.org/v2/sources', {params: params});
   }
 
-  getAllNews(): Observable<NewsResponse[]> {
+  getAllNews(): Observable<NewsResponse> {
     const params = new HttpParams()
       .set('apiKey', API_KEY)
       .set('language', 'en')
       .set('pageSize', '20')
       .set('sources', 'ABC News');
-    return this.http.get<NewsResponse[]>('https://newsapi.org/v2/everything', {params: params});
+    return this.http.get<NewsResponse>('https://newsapi.org/v2/everything', {params: params});
   }
 
-  getNewsBySourceName(sourceName: string, language: string): Observable<NewsResponse[]> {
+  getNewsBySourceName(sourceName: string, language: string): Observable<NewsResponse> {
     const params = new HttpParams()
       .set('apiKey', API_KEY)
       .set('language', language)
       .set('pageSize', '20')
       .set('sources', sourceName);
-    return this.http.get<NewsResponse[]>('https://newsapi.org/v2/everything', {params: params});
+    return this.http.get<NewsResponse>('https://newsapi.org/v2/everything', {params: params});
   }
 
 }
